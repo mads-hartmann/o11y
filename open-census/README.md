@@ -4,13 +4,13 @@
 
 This is a demonstration of how you can use the OpenCensus [agent] and [collector] (collectively called [OpenCensus Service]) to export distributed traces from your services to various backends (Zipkin, Datadog, and Honeycomb in this example, [more exporters are available][exporters]).
 
-You instrument your services using the OpenCensus library - which are provided for a range of languages, this example uses node - and configure an exporter to send traces to the agent/collector, which then sends the traces off to your configured backends. In theory, this means you've achieved vendor independent traces 🎉
+You instrument your services using the OpenCensus library - which is provided for a range of languages, this example uses node - and configure an exporter to send traces to the agent/collector, which then sends the traces off to your configured backends. In theory, this means you've achieved vendor independent traces 🎉
 
 **caveat 1:** Due to a limitation/bug in the jaeger ([#551] - havent' verified this bug yet as I haven't set up Jaeger) and datadog ([#198]) exporters this example is running an agent/collector per service - the bug causes them to drop the service name you've specified in your application and will instead show up as *opencensus-app* which isn't very helpful.
 
 **caveat 2:** In the example I'm running one collector and one agent - the collector could just as well have been an agent but I wanted to see the collector in action as well. You could also have chosen just to run a single agent or collector, but that won't work because of caveat 1. The collector has more features, so read up on both to see which one matches your requirements best.
 
-**caveat 3:** The Honeycomb and Datadog exporters are disabled by default as you to have an account at the appropriate vendor. Follow the instructions in each relevant sections below if you want to enable them.
+**caveat 3:** The Honeycomb and Datadog exporters are disabled by default as you need to have an account at the appropriate vendor. Follow the instructions in each of the relevant sections below if you want to enable them.
 
 ## Table of contents
 
